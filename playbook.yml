@@ -1,0 +1,23 @@
+- name: Deploy maven project on localhost for testing
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Start and enable Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+      become: yes
+
+    - name: Pull the project Image
+      community.docker.docker_image:
+        name: malekghorbel/parser
+        source: pull
+
+    - name: Create the project container
+      community.docker.docker_container:
+        name: mavenproj
+        image: malekghorbel/parser
+        ports:
+          - "8085:8085"
+        state: present
