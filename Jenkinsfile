@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPO_URL = 'https://github.com/Malek-Ghorbel/ExpressionLanguage-Java.git'
+        GIT_REPO_URL = 'https://github.com/Malek-Ghorbel/ExpressionLanguage-Java-CI-CD'
         GIT_CREDENTIALS_ID = 'githubcred'
         imagename = "malekghorbel/parser"
         registryCredential = 'dockerhub'
